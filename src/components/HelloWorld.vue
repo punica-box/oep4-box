@@ -221,7 +221,7 @@ export default {
     },
     async init() {
       const contract = this.contractHash;
-      const method = 'Init';
+      const method = 'init';
       const parameters = [];
       const params = {
         contract,
@@ -318,11 +318,11 @@ export default {
       const method = 'transfer';
       const from = new Crypto.Address(this.account);
       const to = new Crypto.Address(this.receiver);
-      const amount = this.amount;
+      const amount = parseInt(this.amount);
       const parameters = [
         new Parameter('from', ParameterType.ByteArray, from.serialize()),
         new Parameter('to', ParameterType.ByteArray, to.serialize()),
-        new Parameter('amount', ParameterType.Long, amount)          
+        new Parameter('amount', ParameterType.Integer, amount)          
       ];
       const params = {
         contract,
